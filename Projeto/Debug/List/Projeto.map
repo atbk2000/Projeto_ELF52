@@ -1,0 +1,119 @@
+###############################################################################
+#
+# IAR ELF Linker V9.10.2.313/W64 for ARM                  26/Aug/2021  23:29:08
+# Copyright 2007-2021 IAR Systems AB.
+#
+#    Output file  =
+#        C:\Users\anton\OneDrive\Documentos\UTFPR\Disciplinas\6periodo\SistemasMicrocontrolados\Exercícios_IAR\Projetos\Projeto\Debug\Exe\Projeto.out
+#    Map file     =
+#        C:\Users\anton\OneDrive\Documentos\UTFPR\Disciplinas\6periodo\SistemasMicrocontrolados\Exercícios_IAR\Projetos\Projeto\Debug\List\Projeto.map
+#    Command line =
+#        -f
+#        C:\Users\anton\OneDrive\Documentos\UTFPR\Disciplinas\6periodo\SistemasMicrocontrolados\Exercícios_IAR\Projetos\Projeto\Debug\Exe\Projeto.out.rsp
+#        (C:\Users\anton\OneDrive\Documentos\UTFPR\Disciplinas\6periodo\SistemasMicrocontrolados\Exercícios_IAR\Projetos\Projeto\Debug\Obj\asm.o
+#        C:\Users\anton\OneDrive\Documentos\UTFPR\Disciplinas\6periodo\SistemasMicrocontrolados\Exercícios_IAR\Projetos\Projeto\Debug\Obj\init.o
+#        C:\Users\anton\OneDrive\Documentos\UTFPR\Disciplinas\6periodo\SistemasMicrocontrolados\Exercícios_IAR\Projetos\Projeto\Debug\Obj\startup_TM4C19E.o
+#        --no_out_extension -o
+#        C:\Users\anton\OneDrive\Documentos\UTFPR\Disciplinas\6periodo\SistemasMicrocontrolados\Exercícios_IAR\Projetos\Projeto\Debug\Exe\Projeto.out
+#        --redirect _Printf=_PrintfFullNoMb --redirect _Scanf=_ScanfFullNoMb
+#        --map
+#        C:\Users\anton\OneDrive\Documentos\UTFPR\Disciplinas\6periodo\SistemasMicrocontrolados\Exercícios_IAR\Projetos\Projeto\Debug\List\Projeto.map
+#        --config "C:\Program Files\IAR Systems\Embedded Workbench
+#        9.0\arm\config\linker\TexasInstruments\TM4C1294NC.icf" --semihosting
+#        --no_library_search --entry __iar_program_start --vfe --text_out
+#        locale)
+#
+###############################################################################
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at address 0x0 { ro section .intvec };
+"P1":  place in [from 0x0 to 0xf'ffff] { ro };
+define block CSTACK with size = 32K, alignment = 8 { };
+define block HEAP with size = 64K, alignment = 8 { };
+"P2":  place in [from 0x2000'0000 to 0x2003'ffff] {
+          rw, block CSTACK, block HEAP };
+
+No sections matched the following patterns:
+
+  rw  in "P2"
+
+
+  Section   Kind         Address    Size  Object
+  -------   ----         -------    ----  ------
+"A0":                              0x3c0
+  .intvec   ro code          0x0   0x3c0  startup_TM4C19E.o [1]
+                         - 0x3c0   0x3c0
+
+"P1":                              0x39a
+  .text     ro code        0x3c0   0x300  asm.o [1]
+  .text     ro code        0x6c0    0x98  init.o [1]
+  .text     ro code        0x758     0x2  startup_TM4C19E.o [1]
+                         - 0x75a   0x39a
+
+"P2":                             0x8000
+  CSTACK             0x2000'0000  0x8000  <Block>
+    CSTACK  uninit   0x2000'0000  0x8000  <Block tail>
+                   - 0x2000'8000  0x8000
+
+Unused ranges:
+
+         From           To      Size
+         ----           --      ----
+        0x75a     0xf'ffff  0xf'f8a6
+  0x2000'8000  0x2003'ffff  0x3'8000
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module             ro code  rw data
+    ------             -------  -------
+command line/config:
+    -----------------------------------
+    Total:
+
+C:\Users\anton\OneDrive\Documentos\UTFPR\Disciplinas\6periodo\SistemasMicrocontrolados\Exercícios_IAR\Projetos\Projeto\Debug\Obj: [1]
+    asm.o                  768
+    init.o                 152
+    startup_TM4C19E.o      962
+    -----------------------------------
+    Total:               1'882
+
+    Linker created               32'768
+---------------------------------------
+    Grand Total:         1'882   32'768
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                     Address  Size  Type      Object
+-----                     -------  ----  ----      ------
+CSTACK$$Base          0x2000'0000         --   Gb  - Linker created -
+CSTACK$$Limit         0x2000'8000         --   Gb  - Linker created -
+GPIO_enable                 0x6c1        Code  Gb  init.o [1]
+GPIO_select                 0x6f5        Code  Gb  init.o [1]
+GPIO_special                0x6db        Code  Gb  init.o [1]
+UART_config                 0x721        Code  Gb  init.o [1]
+UART_enable                 0x707        Code  Gb  init.o [1]
+__Vectors                     0x0         --   Gb  startup_TM4C19E.o [1]
+__Vectors_End               0x3c0        Data  Gb  startup_TM4C19E.o [1]
+__Vectors_Size {Abs}        0x3c0         --   Gb  startup_TM4C19E.o [1]
+__iar_program_start         0x3c1        Code  Gb  asm.o [1]
+__vector_table                0x0        Data  Gb  startup_TM4C19E.o [1]
+__vector_table_0x1c          0x1c        Data  Gb  startup_TM4C19E.o [1]
+
+
+[1] = C:\Users\anton\OneDrive\Documentos\UTFPR\Disciplinas\6periodo\SistemasMicrocontrolados\Exercícios_IAR\Projetos\Projeto\Debug\Obj
+
+   1'882 bytes of readonly  code memory
+  32'768 bytes of readwrite data memory
+
+Errors: none
+Warnings: none
